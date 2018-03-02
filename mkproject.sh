@@ -7,7 +7,8 @@ projectroot="${HOME}/Beeva/${projectname}"
 
 mkdir -p "${projectroot}/bin"
 
-echo 'export PATH=$(expand_path bin):$PATH' > "${projectroot}/.envrc"
+echo 'export PROJECTROOT=$(expand_path .)' > "${projectroot}/.envrc"
+echo 'export PATH=$(expand_path bin):$PATH' >> "${projectroot}/.envrc"
 
 shift
 for opt in "$@"
