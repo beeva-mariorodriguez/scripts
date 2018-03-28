@@ -25,6 +25,9 @@ do
             echo 'export GOPATH=$(expand_path go)' >> "${projectroot}/.envrc"
             echo 'export PATH=$(expand_path go/bin):$PATH' >> "${projectroot}/.envrc"
             ;;
+        "-node")
+            echo 'layout_node' >> "${projectroot}/.envrc"
+            ;;
         *)
             echo "${opt}?"
             ;;
