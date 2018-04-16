@@ -11,8 +11,8 @@ function check_auth {
 function add_key {
     aws_regions=$(aws ec2 describe-regions --region us-east-1 | jq -r '.Regions[].RegionName')
     keyname="${1:-$USER}"
-    privkey_path="${HOME}/.ssh/${KEYNAME}.aws"
-    pubkey_path="${HOME}/.ssh/${KEYNAME}.aws.pub"
+    privkey_path="${HOME}/.ssh/${keyname}.aws"
+    pubkey_path="${HOME}/.ssh/${keyname}.aws.pub"
     ssh-keygen -f "${privkey_path}"
     for aws_region in $(echo $aws_regions)
     do
