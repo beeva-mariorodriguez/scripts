@@ -8,7 +8,7 @@ projectroot="${HOME}/Beeva/${projectname}"
 mkdir -p "${projectroot}/bin"
 
 echo 'export PROJECTROOT=$(expand_path .)' > "${projectroot}/.envrc"
-echo 'export PATH=$(expand_path bin):$PATH' >> "${projectroot}/.envrc"
+echo 'PATH_add bin' >> "${projectroot}/.envrc"
 
 shift
 for opt in "$@"
@@ -23,10 +23,10 @@ do
         "-go")
             mkdir -p "${projectroot}/go"
             echo 'export GOPATH=$(expand_path go)' >> "${projectroot}/.envrc"
-            echo 'export PATH=$(expand_path go/bin):$PATH' >> "${projectroot}/.envrc"
+            echo 'PATH_add go/bin' >> "${projectroot}/.envrc"
             ;;
         "-node")
-            echo 'layout_node' >> "${projectroot}/.envrc"
+            echo 'layout node' >> "${projectroot}/.envrc"
             ;;
         *)
             echo "${opt}?"
